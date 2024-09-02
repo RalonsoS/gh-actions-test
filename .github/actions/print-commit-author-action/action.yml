@@ -6,10 +6,12 @@ runs:
   steps:
     - name: Retrieve commit author name
       id: get-author
+      shell: bash
       run: |
         AUTHOR_NAME=$(git log -1 --pretty=format:'%an')
         echo "AUTHOR_NAME=${AUTHOR_NAME}" >> $GITHUB_ENV
 
     - name: Print commit author name
+      shell: bash
       run: |
         echo "Author of the last commit is: ${{ env.AUTHOR_NAME }}"
