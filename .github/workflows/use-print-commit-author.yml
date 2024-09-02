@@ -1,0 +1,17 @@
+# .github/workflows/use-print-commit-author-action.yml
+name: Use Print Commit Author Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-print-commit-author-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Print Commit Author Action
+        uses: RalonsoS/print-commit-author-action@main

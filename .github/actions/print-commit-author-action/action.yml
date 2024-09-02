@@ -1,0 +1,15 @@
+# .github/actions/print-commit-author-action/action.yml
+name: 'Print Commit Author Action'
+description: 'A composite action that prints the name of the last commit author'
+runs:
+  using: 'composite'
+  steps:
+    - name: Retrieve commit author name
+      id: get-author
+      run: |
+        AUTHOR_NAME=$(git log -1 --pretty=format:'%an')
+        echo "AUTHOR_NAME=${AUTHOR_NAME}" >> $GITHUB_ENV
+
+    - name: Print commit author name
+      run: |
+        echo "Author of the last commit is: ${{ env.AUTHOR_NAME }}"
