@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Use Print Commit Author Action
-        uses: RalonsoS/print-commit-author-action@main
+        uses: ./.github/actions/print-commit-author-action
